@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Workshop Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            max-width: 500px;
+            background-color: #f4f4f4;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label, input, select {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        button {
+            background: #5cb85c;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <h2>Student Workshop Registration</h2>
+    <form action="#" method="post">
+        <label for="name">Student Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="grade">Grade:</label>
+        <input type="text" id="grade" name="grade" required>
+
+        <label for="parent_contact">Parent/Guardian Contact:</label>
+        <input type="tel" id="parent_contact" name="parent_contact" required>
+
+        <label for="workshop">Select Workshop:</label>
+        <select id="workshop" name="workshop" required>
+            <option value="science">Science Exploration</option>
+            <option value="math">Mathematics Fun</option>
+            <option value="art">Creative Arts</option>
+            <option value="coding">Introduction to Coding</option>
+        </select>
+
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
