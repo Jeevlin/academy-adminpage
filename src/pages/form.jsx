@@ -1,12 +1,15 @@
-// StudentWorkshopRegistration.jsx
+
 import { useState } from "react";
 import "./form.css";
+import { db, serverTimestamp } from "../assets/firebase"; // Import Firebase config
+import { collection, addDoc } from "firebase/firestore";
 
 const Form = () => {
     const [formData, setFormData] = useState({
         name: "",
         age: "",
         grade: "",
+        email:" ",
         parent_contact: "",
         workshop: "science",
     });
@@ -18,11 +21,30 @@ const Form = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Registration Details:", formData);
-        alert("Registration Successful!");
-    };
+        try {
+          await addDoc(collection(db, "students"), {
+            ...formData,
+            registeredTime: serverTimestamp(), // Store registration time
+          });
+    
+          alert("Student Registered Successfully!");
+          setFormData({
+            name: "",
+            age: "",
+            email: "",
+            grade: "",
+            workshop: "",
+            parent_contact: "",
+          
+          });
+        } catch (error) {
+          console.error("Error adding document:", error);
+          alert("Failed to register student.");
+        }
+      };
+    
 
     return (
         <div className="container">
@@ -34,6 +56,9 @@ const Form = () => {
                 <label>Age:</label>
                 <input type="number" name="age" value={formData.age} onChange={handleChange} required />
                 
+                <label>Email:</label>
+                <input type="text" name="email" value={formData.email} onChange={handleChange} required />
+
                 <label>Grade:</label>
                 <input type="text" name="grade" value={formData.grade} onChange={handleChange} required />
                 
@@ -42,10 +67,10 @@ const Form = () => {
                 
                 <label>Select Workshop:</label>
                 <select name="workshop" value={formData.workshop} onChange={handleChange} required>
-                    <option value="science">Science Exploration</option>
-                    <option value="math">Mathematics Fun</option>
-                    <option value="art">Creative Arts</option>
-                    <option value="coding">Introduction to Coding</option>
+                    <option value="Science Exploration">Science Exploration</option>
+                    <option value="Mathematics Fun">Mathematics Fun</option>
+                    <option value="Creative Arts">Creative Arts</option>
+                    <option value="Introduction to Coding">Introduction to Coding</option>
                 </select>
                 
                 <button type="submit" className="submit-button">Register</button>
