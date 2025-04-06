@@ -76,7 +76,7 @@
   margin-left: 500px;
   display:flex;
   width:250px;
-  margin-top: 25px;
+  margin-top: 20px;
 
 }
 
@@ -84,7 +84,7 @@
 .assign-dropdown label {
   font-weight: bold;
   width: 150px;
-  margin-top: 5px;
+  
 }
 
 .admin-select {

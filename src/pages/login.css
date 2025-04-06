@@ -2,14 +2,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
- 
+
    
   }
+  
  .form{
     background-Color: #fff;
     padding: 40px 80px;
-    border-Radius: "8px";
     box-Shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-Direction: column;
@@ -35,6 +34,6 @@
     border-Radius: 4px;
     font-Size: 16px;
     cursor: pointer;
-    width:108%;
+    width:100%;
   }
 
