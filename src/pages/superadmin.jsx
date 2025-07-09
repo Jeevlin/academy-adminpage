@@ -4,6 +4,7 @@ import { collection, getDocs, updateDoc, doc,orderBy,query } from "firebase/fire
 import { signOut } from "firebase/auth";
 import { auth } from "../assets/firebase"; 
 import { deleteDoc } from "firebase/firestore"; // already imported firestore functions
+import { useNavigate } from "react-router-dom";
 import "./superadmin.css";
 
 const SuperAdminDashboard = () => {
@@ -142,7 +143,7 @@ useEffect(() => {
     try {
       await signOut(auth);
       alert("Logged out successfully!");
-      window.location.href = "/login"; // Redirect to login page
+      Navigate( "/login"); // Redirect to login page
     } catch (error) {
       console.error("Logout Error:", error);
     }
