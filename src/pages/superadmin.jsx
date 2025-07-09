@@ -14,6 +14,8 @@ const SuperAdminDashboard = () => {
   const [expandedStudent, setExpandedStudent] = useState({});
   const [superAdminEmail, setSuperAdminEmail] = useState("");
   const [superAdminName, setSuperAdminName] = useState("");
+  const navigate = useNavigate();
+
 
 
 useEffect(() => {
@@ -143,7 +145,7 @@ useEffect(() => {
     try {
       await signOut(auth);
       alert("Logged out successfully!");
-      Navigate( "/login"); // Redirect to login page
+      navigate( "/login"); // Redirect to login page
     } catch (error) {
       console.error("Logout Error:", error);
     }
